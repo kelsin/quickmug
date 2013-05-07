@@ -1,4 +1,4 @@
-module Quickmug
+module QuickMug
   class Album
     attr_reader :id, :key
 
@@ -12,17 +12,17 @@ module Quickmug
     end
 
     def info
-      @info ||= Quickmug.client.albums.getInfo(apiHash)
+      @info ||= QuickMug.client.albums.getInfo(apiHash)
     end
 
     def images
-      @images ||= Quickmug.client.images.get(apiHash)['Images'].map do |data|
+      @images ||= QuickMug.client.images.get(apiHash)['Images'].map do |data|
         Image.fromApi(data)
       end
     end
 
     def selected?
-      self.id == Quickmug.config['album']
+      self.id == QuickMug.config['album']
     end
 
     def to_s
@@ -40,7 +40,7 @@ module Quickmug
     end
 
     def self.all
-      @@albums ||= Quickmug.client.albums.get.map do |data|
+      @@albums ||= QuickMug.client.albums.get.map do |data|
         Album.fromApi(data)
       end
     end

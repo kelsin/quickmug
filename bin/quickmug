@@ -7,8 +7,8 @@ require 'commander/import'
 require 'quickmug'
 
 program :name, 'quickmug'
-program :version, Quickmug::VERSION
-program :description, Quickmug::DESCRIPTION
+program :version, QuickMug::VERSION
+program :description, QuickMug::DESCRIPTION
 
 default_command :help
 
@@ -17,7 +17,7 @@ command :upload do |c|
   c.description = 'Uploads an IMAGE to smugmug with a caption of CAPTION'
 
   c.action do |args, options|
-    Quickmug.copy(Quickmug::Upload.process(args).render)
+    QuickMug.copy(QuickMug::Upload.process(args).render)
   end
 end
 
@@ -26,7 +26,7 @@ command :copy do |c|
   c.description = 'Uses your format setting to copy the image information to the clipboard'
 
   c.action do |args, options|
-    Quickmug.copy(Quickmug::Image.fromArgs(args).render)
+    QuickMug.copy(QuickMug::Image.fromArgs(args).render)
   end
 end
 
@@ -35,7 +35,7 @@ command :albums do |c|
   c.description = 'List your smugmug albums'
 
   c.action do |args, options|
-    Quickmug::Album.all.each do |album|
+    QuickMug::Album.all.each do |album|
       puts album
     end
   end
@@ -46,7 +46,7 @@ command :last do |c|
   c.description = 'Copy and show the last image from the selected album'
 
   c.action do |args, options|
-    Quickmug.copy(Quickmug::Album.selected.images.last)
+    QuickMug.copy(QuickMug::Album.selected.images.last)
   end
 end
 
@@ -58,7 +58,7 @@ command :images do |c|
 
   c.action do |args, options|
     options.default :last => 5
-    images = Quickmug::Album.selected.images
+    images = QuickMug::Album.selected.images
 
     if !options.all
       images = images[(-1 * options.last)..-1]

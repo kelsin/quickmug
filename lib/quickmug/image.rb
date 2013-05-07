@@ -1,4 +1,4 @@
-module Quickmug
+module QuickMug
   class Image
     attr_reader :id, :key
 
@@ -12,7 +12,7 @@ module Quickmug
     end
 
     def info
-      @info ||= Quickmug.client.images.getInfo(apiHash)
+      @info ||= QuickMug.client.images.getInfo(apiHash)
     end
 
     def to_s
@@ -20,7 +20,7 @@ module Quickmug
     end
 
     def render
-      output = Quickmug.config['format']
+      output = QuickMug.config['format']
 
       info.each do |key, value|
         output = output.gsub("[#{key}]", value.to_s)

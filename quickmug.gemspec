@@ -5,11 +5,11 @@ require 'quickmug/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "quickmug"
-  spec.version       = Quickmug::VERSION
+  spec.version       = QuickMug::VERSION
   spec.authors       = ["Christopher Giroir"]
   spec.email         = ["kelsin@valefor.com"]
-  spec.description   = Quickmug::DESCRIPTION
-  spec.summary       = Quickmug::DESCRIPTION
+  spec.description   = QuickMug::DESCRIPTION
+  spec.summary       = QuickMug::DESCRIPTION
   spec.homepage      = %q{http://github.com/Kelsin/quickmug}
   spec.license       = "MIT"
 

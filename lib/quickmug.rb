@@ -10,7 +10,7 @@ require 'quickmug/upload'
 require 'quickmug/image'
 require 'quickmug/album'
 
-module Quickmug
+module QuickMug
   def self.config
     @@config ||= YAML.safe_load_file(File.expand_path("~/.quickmug"))
   end
