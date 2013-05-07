@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kelsin@valefor.com"]
   spec.description   = Quickmug::DESCRIPTION
   spec.summary       = Quickmug::DESCRIPTION
-  spec.homepage      = ""
+  spec.homepage      = %q{http://github.com/Kelsin/quickmug}
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

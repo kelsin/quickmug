@@ -10,7 +10,7 @@ program :name, 'quickmug'
 program :version, Quickmug::VERSION
 program :description, Quickmug::DESCRIPTION
 
-default_command :upload
+default_command :help
 
 command :upload do |c|
   c.syntax = 'quickmug upload IMAGE CAPTION'
