@@ -7,7 +7,8 @@ require 'ruby-smugmug'
 require 'clipboard'
 
 require 'quickmug/upload'
-require 'quickmug/format'
+require 'quickmug/image'
+require 'quickmug/album'
 
 module Quickmug
   def self.config
@@ -20,5 +21,10 @@ module Quickmug
                                      :user => {
                                        :token => config['access']['token'],
                                        :secret => config['access']['secret']})
+  end
+
+  def self.copy(text)
+    puts(text)
+    Clipboard.copy(text.to_s)
   end
 end
