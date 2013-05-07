@@ -1,5 +1,17 @@
 # Quickmug
 
+I currently use [Jekyll](http://jekyllrb.com/) for
+[my blog](http://mx.kelsin.net) and
+[SmugMug](http://www.smugmug.com/) for hosted images and photos. I created this
+gem to allow myself to easily upload files to SmugMug from the command
+line. Quickmug also puts a string (in the format of my chosing) on my clipboard
+for easy insertion into my blog post. Right now I use a
+[custom liquid tag](https://github.com/Kelsin/mxKelsin/blob/master/_plugins/images.rb)
+that inserts the images using [Bootstrap](http://twitter.github.io/bootstrap/)'s
+thumbnail classes. I use the following format string in order to do this:
+
+    {% image [ThumbURL] [LargeURL] [Caption] %}
+
 ## Installation
 
 Add this line to your application's Gemfile:
