@@ -46,7 +46,7 @@ module QuickMug
     end
 
     def self.selected
-      @@selected ||= self.all.first(&:selected?)
+      @@selected ||= self.all.find(&:selected?)
     end
   end
 end
