@@ -1,28 +1,15 @@
 # QuickMug
 
 I currently use [Jekyll](http://jekyllrb.com/) for
-[my blog](http://mx.kelsin.net) and
-[SmugMug](http://www.smugmug.com/) for hosted images and photos. I created this
-gem to allow myself to easily upload files to SmugMug from the command
-line. QuickMug also puts a string (in the format of my chosing) on my clipboard
-for easy insertion into my blog post. Right now I use a
-[custom liquid tag](https://github.com/Kelsin/mxKelsin/blob/master/_plugins/images.rb)
-that inserts the images using [Bootstrap](http://twitter.github.io/bootstrap/)'s
-thumbnail classes. I use the following format string in order to do this:
+[my blog](http://mx.kelsin.net) and [SmugMug](http://www.smugmug.com/) for
+hosted images and photos. I created this gem to allow myself to easily upload
+files to SmugMug from the command line. QuickMug also puts a string (in the
+format of my chosing) on my clipboard for easy insertion into my blog post. I
+use the following format string in order to do this:
 
-    {% image [ThumbURL] [LargeURL] [Caption] %}
+    [![[Caption]]([ThumbURL] "[Caption]")]([LargeURL])
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'quickmug'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install quickmug
 
@@ -38,7 +25,7 @@ config file `~/.quickmug` that is a yaml document like the following:
         token: ccc
         secret: ddd
     album: 123456789
-    format: "{% image [ThumbURL] [LargeURL] [Caption] %}"
+    format: ! "[![[Caption]]([ThumbURL] \"[Caption]\")]([LargeURL])"
 
 Consumer data is the API app key that you can get by registering an app on
 SmugMug's website. This allows you to use their api.
