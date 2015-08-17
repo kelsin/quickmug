@@ -32,7 +32,8 @@ SmugMug's website. This allows you to use their api.
 
 Access data is your personal access token for your user. You can get this using
 oauth. I plan on adding a feature to this gem that helps you get that... but
-it's not in the code yet (sorry).
+it's not in the code yet (sorry). For now I posted the manual process that I
+used down below.
 
 Album is the album id that uploads will go to. You can get a list of albums by
 running `quickmug albums` (as long as you have the consumer and access tokens
@@ -58,6 +59,40 @@ The following commands are available
     often the one you just uploaded).
 * **upload IMAGE CAPTION** Uploads a image file to smugmug with a caption. You
     don't need quotes around the caption.
+
+## Getting access token from Smugmug API key and secret
+
+You can use irb with the ruby oauth gem in order to get an access token to use
+with QuickMug.
+
+First make sure the "oauth" gem is installed and then run "irb" to get into the
+ruby command line. Then you can follow along below:
+
+``` ruby
+require 'oauth'
+@callback_url = "http://localhost"
+
+# Replace "key" and "secret" below with your SmugMug API key and secret
+@consumer = OAuth::Consumer.new("key", "secret",
+                                :site => "https://secure.smugmug.com",
+                                :request_token_path => "/services/oauth/1.0a/getRequestToken",
+                                :authorize_path => "/services/oauth/1.0a/authorize",
+                                :access_token_path => "/services/oauth/1.0a/getAccessToken")
+
+# Generate request token
+@request_token = @consumer.get_request_token(:oauth_callback => @callback_url)
+
+# Get authorize URL
+@request_token.authorize_url(:oauth_callback => @callback_url)
+
+# Now go to that url and when you're done authorization you can run the
+# following command where you put in the value for oauth_verifier that you got
+# from completely the above URL request:
+@access_token = @request_token.get_access_token(:oauth_verifier =>"")
+```
+
+Now you can use the token and secret values from the @access_token object in
+your quick mug config file.
 
 ## Contributing
 
