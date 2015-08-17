@@ -60,13 +60,14 @@ The following commands are available
 * **upload IMAGE CAPTION** Uploads a image file to smugmug with a caption. You
     don't need quotes around the caption.
 
-## Getting access token from Smugmug API key and secret
+## Getting Access Token Manually
 
 You can use irb with the ruby oauth gem in order to get an access token to use
 with QuickMug.
 
-First make sure the "oauth" gem is installed and then run "irb" to get into the
-ruby command line. Then you can follow along below:
+First make sure that you have an API key and secret from the SmugMug site. Also
+make sure the "oauth" gem is installed and then run "irb" to get into the ruby
+command line. Then you can follow along below:
 
 ``` ruby
 require 'oauth'
