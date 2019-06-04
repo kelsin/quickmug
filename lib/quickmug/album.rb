@@ -1,18 +1,15 @@
 module QuickMug
   class Album
-    attr_reader :id, :key
+    attr_reader :id, :key, :title
 
-    def initialize(id, key)
+    def initialize(id, key, title)
       @id = id
       @key = key
+      @title = title
     end
 
     def apiHash
       {:AlbumID => @id, :AlbumKey => @key}
-    end
-
-    def info
-      @info ||= QuickMug.client.albums.getInfo(apiHash)
     end
 
     def images
@@ -27,11 +24,11 @@ module QuickMug
 
     def to_s
       selected = selected? ? '*' : ' '
-      " #{selected} #{info['Title']} id:#@id key:#@key"
+      " #{selected} #@title id:#@id key:#@key"
     end
 
     def self.fromApi(data)
-      Album.new(data['id'], data['Key'])
+      Album.new(data['id'], data['Key'], data['Title'])
     end
 
     def self.fromArgs(args)

@@ -18,13 +18,13 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency('commander', "~> 4.2.0")
-  spec.add_runtime_dependency('safe_yaml', "~> 1.0.3")
-  spec.add_runtime_dependency('oauth', "~> 0.4.7")
-  spec.add_runtime_dependency('ruby-smugmug', "~> 0.0.1")
-  spec.add_runtime_dependency('clipboard', "~> 1.0.5")
-  spec.add_runtime_dependency('ffi', "~> 1.9.3")
+  spec.add_runtime_dependency('commander', "~> 4.4.7")
+  spec.add_runtime_dependency('safe_yaml', "~> 1.0.4")
+  spec.add_runtime_dependency('oauth', "~> 0.5.4")
+  spec.add_runtime_dependency('ruby-smugmug', "~> 0.0.2")
+  spec.add_runtime_dependency('clipboard', "~> 1.3.2")
+  spec.add_runtime_dependency('ffi', "~> 1.9.25")
 
-  spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "bundler", "~> 1.17.1"
   spec.add_development_dependency "rake"
 end
